@@ -11,8 +11,11 @@ fn read_lines(filename: &str) -> Vec<String> {
 }
 
 fn calibration_value_part_one(input: String) -> i32 {
-    let char_v: Vec<char> = input.chars().collect();
-    let numerical_values: Vec<char> = char_v.into_iter().filter(|c| c.is_digit(10)).collect();
+    let numerical_values: Vec<char> = input
+        .chars()
+        .into_iter()
+        .filter(|c| c.is_digit(10))
+        .collect();
     let firstdigit: char = numerical_values[0];
     let lastdigit: char = numerical_values[numerical_values.len() - 1];
     let calibration_value_str = firstdigit.to_string() + &lastdigit.to_string();
