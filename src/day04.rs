@@ -1,18 +1,8 @@
+use crate::utils::read_lines;
 use regex::Regex;
-use std::{collections::HashSet, fs::read_to_string};
-
-fn read_lines(filename: &str) -> Vec<String> {
-    let mut result = Vec::new();
-
-    for line in read_to_string(filename).unwrap().lines() {
-        result.push(line.to_string())
-    }
-
-    result
-}
+use std::collections::HashSet;
 
 struct Game {
-    card_id: u8,
     winning_nos: HashSet<u8>,
     scratchcard_nos: HashSet<u8>,
 }
@@ -38,7 +28,6 @@ impl Game {
         let Some(caps) = line_regex.captures(line) else {
             panic!("On the Streets Of London")
         };
-        let card_id = caps["card_id"].parse::<u8>().unwrap();
         let winning_nos: HashSet<u8> = HashSet::from_iter(
             caps["winning_nos"]
                 .split_whitespace()
@@ -50,7 +39,6 @@ impl Game {
                 .map(|a| a.parse::<u8>().unwrap()),
         );
         Game {
-            card_id,
             winning_nos,
             scratchcard_nos,
         }
@@ -72,7 +60,7 @@ pub fn part1solve() -> u32 {
 
 pub fn part2solve() -> u32 {
     let games = parse();
-    let mut copies_of_card_id: Vec<u32> = games.iter().map(|g| 1).collect();
+    let mut copies_of_card_id: Vec<u32> = games.iter().map(|_g| 1).collect();
     for i in 0..games.len() {
         for j in 1..=games[i].part_two_count() {
             copies_of_card_id[&i + j as usize] += copies_of_card_id[i];

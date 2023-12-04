@@ -1,14 +1,4 @@
-use std::fs::read_to_string;
-
-fn read_lines(filename: &str) -> Vec<String> {
-    let mut result = Vec::new();
-
-    for line in read_to_string(filename).unwrap().lines() {
-        result.push(line.to_string())
-    }
-
-    result
-}
+use crate::utils::read_lines;
 
 fn get_nos_in_row(row: &Vec<char>, pivot_index: usize) -> Vec<u32> {
     let mut surrounding_nos: Vec<u32> = vec![];
@@ -34,6 +24,7 @@ fn find_rest_of_number(row: &Vec<char>, index: usize) -> u32 {
         number_chars.push(row[search_idx]);
         search_idx += 1;
     }
+    
     search_idx = index - 1;
     while search_idx >= 0 && row[search_idx].is_ascii_digit() {
         number_chars.insert(0, row[search_idx]);
