@@ -1,3 +1,8 @@
+// TIL:
+//  1) Using `for i in 1..=my_vector.len()``
+//  2) Recalled extend, push, insert syntax for mutable vectors
+//  3) Using foo.iter().collect::<String>() to convert Vec<Char> to String
+
 use crate::utils::read_lines;
 
 fn get_nos_in_row(row: &Vec<char>, pivot_index: usize) -> Vec<u32> {
@@ -24,7 +29,7 @@ fn find_rest_of_number(row: &Vec<char>, index: usize) -> u32 {
         number_chars.push(row[search_idx]);
         search_idx += 1;
     }
-    
+
     search_idx = index - 1;
     while search_idx >= 0 && row[search_idx].is_ascii_digit() {
         number_chars.insert(0, row[search_idx]);

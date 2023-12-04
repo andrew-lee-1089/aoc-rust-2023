@@ -1,3 +1,9 @@
+// TIL:
+//  1) Using `for i in 1..=my_vector.len()``
+//  2) Recalled Hashsets
+//  3) Raising to powers
+//  4) split_whitespace
+
 use crate::utils::read_lines;
 use regex::Regex;
 use std::collections::HashSet;
@@ -52,10 +58,7 @@ fn parse() -> Vec<Game> {
 
 pub fn part1solve() -> u32 {
     let games = parse();
-    games
-        .iter()
-        .map(|machine_part| machine_part.scratchcard_value())
-        .sum()
+    games.iter().map(|game| game.scratchcard_value()).sum()
 }
 
 pub fn part2solve() -> u32 {

@@ -1,3 +1,10 @@
+// TIL:
+//  1) Recalled Rust's regex syntax-  which is still awkward
+//  2) Using the turbofish operator came back to me quite quickly - as in `.parse::<T>`, such as .parse::<Vec<Char>>
+//  3) Recalled struct and impl structure - others have used https://doc.rust-lang.org/std/str/trait.FromStr.html
+//  4) I'm unwrapping all over the place out of laziness
+//  5) I had to sort out rustc, cargo rustup, correct cargo upsteam and versions to install regex.
+
 use crate::utils::read_lines;
 use regex::Regex;
 

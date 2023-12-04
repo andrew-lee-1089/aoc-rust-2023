@@ -1,3 +1,9 @@
+// TIL:
+//  1) Back at it after a year of not using Rust, so I am rusty- recalled
+//  2) Writing tests
+//  3) Parsing files
+//  4) The awkward syntax around c.is_digit(10)
+//  5) The fact you can't do my_vector[-1], you have to do my_vector[my_vector.len() - 1]
 use crate::utils::read_lines;
 
 fn calibration_value_part_one(input: String) -> i32 {
