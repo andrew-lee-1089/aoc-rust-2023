@@ -15,5 +15,5 @@ fn main() {
     // println!("Answer to Day 4 Part 1 is {}", day04::part1solve());
     // println!("Answer to Day 4 Part 2 is {}", day04::part2solve());
     println!("Answer to Day 5 Part 1 is {}", day05::part1solve());
-    //println!("Answer to Day 5 Part 2 is {}", day05::part2solve());
+    println!("Answer to Day 5 Part 2 is {}", day05::part2solve());
 }
