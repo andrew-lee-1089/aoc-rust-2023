@@ -67,7 +67,7 @@ impl Converter {
                         end: range.end + rule.modifier,
                     });
                     rules_match = true;
-                    break
+                    break;
                 } else if (rule.input_range.start <= range.start
                     && rule.input_range.end > range.start)
                 {
