@@ -1,5 +1,5 @@
 // TIL:
-// Well that was exceptionally easy comapred to yesterdat, did it in 15 mins, compared to 2 hours
+// Well that was exceptionally easy compared to yesterday, did it in 15 mins, compared to 2 hours
 // 1) Used zip, and fold
 
 use crate::utils::read_lines;

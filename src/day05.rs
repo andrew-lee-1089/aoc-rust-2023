@@ -61,15 +61,15 @@ impl Converter {
             let mut rules_match: bool = false;
 
             for rule in self.rules.iter() {
-                if (rule.input_range.start <= range.start && rule.input_range.end >= range.end) {
+                if rule.input_range.start <= range.start && rule.input_range.end >= range.end {
                     ranges_to_return.push(Range {
                         start: range.start + rule.modifier,
                         end: range.end + rule.modifier,
                     });
                     rules_match = true;
                     break;
-                } else if (rule.input_range.start <= range.start
-                    && rule.input_range.end > range.start)
+                } else if rule.input_range.start <= range.start
+                    && rule.input_range.end > range.start
                 {
                     ranges_to_return.push(Range {
                         start: range.start + rule.modifier,
@@ -80,8 +80,7 @@ impl Converter {
                         end: range.end,
                     });
                     rules_match = true;
-                } else if (rule.input_range.start < range.end && rule.input_range.end >= range.end)
-                {
+                } else if rule.input_range.start < range.end && rule.input_range.end >= range.end {
                     ranges.push(Range {
                         start: range.start,
                         end: rule.input_range.start,
