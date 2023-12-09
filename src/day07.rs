@@ -3,7 +3,7 @@
 // 1) Used enums, derive / partialOrd / hash  impl Ord etc
 // 2) ma\tch syntax, zip
 // 3) HashMap
-// On Part 2: I feel dirty and ashamed, making an Ord struct was kinda needless and there was fiddly logic there. 
+// On Part 2: I feel dirty and ashamed, making an Ord struct was kinda needless and there was fiddly logic there.
 use std::cmp::Ordering;
 use std::collections::HashMap;
 
@@ -124,47 +124,49 @@ impl Hand {
             cards.push(card_type)
         }
 
-        let mut myHashMap: HashMap<&CardType, i32> = HashMap::new();
+        let mut my_hash_map: HashMap<&CardType, i32> = HashMap::new();
         for card in cards.iter() {
-            *myHashMap.entry(&card).or_insert(0) += 1;
+            *my_hash_map.entry(&card).or_insert(0) += 1;
         }
         let mut hand_type = HandType::HighCard;
-        if myHashMap.values().any(|v| v == &5) {
+        if my_hash_map.values().any(|v| v == &5) {
             hand_type = HandType::FiveOfAKind;
-        } else if myHashMap.values().any(|v| v == &4) {
+        } else if my_hash_map.values().any(|v| v == &4) {
             hand_type = HandType::FourOfAKind;
-        } else if myHashMap.values().any(|v| v == &3) && myHashMap.values().any(|v| v == &2) {
+        } else if my_hash_map.values().any(|v| v == &3) && my_hash_map.values().any(|v| v == &2) {
             hand_type = HandType::FullHouse;
-        } else if myHashMap.values().any(|v| v == &3) {
+        } else if my_hash_map.values().any(|v| v == &3) {
             hand_type = HandType::ThreeOfAKind;
-        } else if myHashMap.values().filter(|v| v == &&2).count() == 2 {
+        } else if my_hash_map.values().filter(|v| v == &&2).count() == 2 {
             hand_type = HandType::TwoPair;
-        } else if myHashMap.values().filter(|v| v == &&2).count() == 1 {
+        } else if my_hash_map.values().filter(|v| v == &&2).count() == 1 {
             hand_type = HandType::OnePair;
         }
 
-        let mut myHashMap_2: HashMap<&CardType, i32> = HashMap::new();
+        let mut my_hash_map_2: HashMap<&CardType, i32> = HashMap::new();
         for card in cards.iter() {
             if card != &CardType::Jack {
-                *myHashMap_2.entry(&card).or_insert(0) += 1;
+                *my_hash_map_2.entry(&card).or_insert(0) += 1;
             }
         }
         let no_jacks = cards.iter().filter(|c| c == &&CardType::Jack).count() as i32;
 
         let mut hand_type_pt2 = HandType::HighCard;
-        if no_jacks == 5 || myHashMap_2.values().any(|v| v + no_jacks == 5) {
+        if no_jacks == 5 || my_hash_map_2.values().any(|v| v + no_jacks == 5) {
             hand_type_pt2 = HandType::FiveOfAKind;
-        } else if myHashMap_2.values().any(|v| v + no_jacks == 4) {
+        } else if my_hash_map_2.values().any(|v| v + no_jacks == 4) {
             hand_type_pt2 = HandType::FourOfAKind;
-        } else if no_jacks == 1 && myHashMap.values().filter(|v| v == &&2).count() == 2
-            || myHashMap.values().any(|v| v == &3) && myHashMap.values().any(|v| v == &2)
+        } else if no_jacks == 1 && my_hash_map.values().filter(|v| v == &&2).count() == 2
+            || my_hash_map.values().any(|v| v == &3) && my_hash_map.values().any(|v| v == &2)
         {
             hand_type_pt2 = HandType::FullHouse;
-        } else if myHashMap_2.values().any(|v| v + no_jacks == 3) {
+        } else if my_hash_map_2.values().any(|v| v + no_jacks == 3) {
             hand_type_pt2 = HandType::ThreeOfAKind;
-        } else if myHashMap.values().filter(|v| v == &&2).count() == 2 || ((myHashMap.values().filter(|v| v == &&2).count() == 1) && no_jacks == 1) {
+        } else if my_hash_map.values().filter(|v| v == &&2).count() == 2
+            || ((my_hash_map.values().filter(|v| v == &&2).count() == 1) && no_jacks == 1)
+        {
             hand_type_pt2 = HandType::TwoPair;
-        } else if no_jacks >= 1 || myHashMap.values().filter(|v| v == &&2).count() == 1 {
+        } else if no_jacks >= 1 || my_hash_map.values().filter(|v| v == &&2).count() == 1 {
             hand_type_pt2 = HandType::OnePair;
         }
 
