@@ -6,6 +6,7 @@ mod day05;
 mod day06;
 mod day07;
 mod day08;
+mod day09;
 mod utils;
 
 fn main() {
@@ -23,6 +24,8 @@ fn main() {
     //println!("Answer to Day 6 Part 2 is {}", day06::part2solve());
     // println!("Answer to Day 7 Part 1 is {}", day07::part1solve());
     // println!("Answer to Day 7 Part 2 is {}", day07::part2solve());
-    println!("Answer to Day 8 Part 1 is {}", day08::part1solve());
-    println!("Answer to Day 8 Part 2 is {}", day08::part2solve());
+    //println!("Answer to Day 8 Part 1 is {}", day08::part1solve());
+    //println!("Answer to Day 8 Part 2 is {}", day08::part2solve());
+    println!("Answer to Day 9 Part 1 is {}", day09::part1solve());
+    println!("Answer to Day 9 Part 2 is {}", day09::part2solve());
 }

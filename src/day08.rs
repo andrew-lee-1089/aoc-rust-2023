@@ -125,7 +125,7 @@ pub fn part2inner(inputs: Vec<String>) -> u64 {
         }
     }
 
-    // Use Chinese remiander theorem to work out how long it will take. 
+    // Use Chinese remiander theorem to work out how long it will take.
     a_nodes_len_to_z
         .values()
         .into_iter()
