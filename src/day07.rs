@@ -41,38 +41,20 @@ fn part2_card_compare(a: &CardType, b: &CardType) -> Ordering {
     if a == &CardType::Jack && b == &CardType::Jack {
         return Ordering::Equal;
     } else if a == &CardType::Jack {
-        println!("LHS is less");
         return Ordering::Less;
     } else if b == &CardType::Jack {
-        println!("RHS is greater");
         return Ordering::Greater;
     } else {
-        println!(
-            "Based on compar
-        
-        ing {:?}, {:?}",
-            a, b
-        );
         return a.cmp(&b);
     }
 }
 
 fn part_2_hand_cmp(a: &Hand, b: &Hand) -> Ordering {
-    println!(
-        "Comapring {:?} {:?} to {:?} {:?}",
-        a.cards, a.hand_type_pt2, b.cards, b.hand_type_pt2
-    );
     if a.hand_type_pt2 < b.hand_type_pt2 {
-        println!("LHS is less");
         return Ordering::Less;
     } else if a.hand_type_pt2 > b.hand_type_pt2 {
-        println!("LHS is greater");
         return Ordering::Greater;
     }
-    println!(
-        "Same type of hand - looknig at cards: {:?} {:?} to {:?} {:?}",
-        a.cards, a.hand_type_pt2, b.cards, b.hand_type_pt2
-    );
     // Cards are of same type - look at the relative value of each card in turn
     let mut pairs = a
         .cards
@@ -99,9 +81,7 @@ struct Hand {
 impl Hand {
     fn from_str(line: &str) -> Hand {
         // line is of the form '5A8QA 674'
-        println!("{}", line);
         let (cards_str, bet_str) = line.split_once(' ').unwrap();
-        println!("{}", bet_str);
         let bet = bet_str.parse::<u32>().unwrap();
         let mut cards: Vec<CardType> = vec![];
         for char in cards_str.chars() {
